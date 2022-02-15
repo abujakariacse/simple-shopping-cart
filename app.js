@@ -22,10 +22,33 @@ function setPhoneQuentity(id,isIncrease,product){
     else{
         getProductPrice.innerText = productQuentity * 59;
     }
-    
+    getSubTotal();
 
 }
 
+// Get Product Quentity
+function getProductQuentity(productId){
+    const productQuentityText = document.getElementById(productId +'-quentity').value;
+    const productQuentity = parseInt(productQuentityText);
+    return productQuentity;
+}
+
+// Sub-Total calculation
+function getSubTotal(){
+    // Phone Price
+    const phoneQuentity = getProductQuentity('phone');
+    const phonePrice = phoneQuentity * 1219;
+
+    // Case Price
+    const caseQuentity = getProductQuentity('case');
+    const casePrice = caseQuentity * 59;
+
+    // Sub Total
+    const subTotal = phonePrice + casePrice;
+    const getsubTotalText = document.getElementById('sub-total');
+    getsubTotalText.innerText = subTotal;
+
+}
 
 
 
