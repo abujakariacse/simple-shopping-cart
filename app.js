@@ -48,10 +48,13 @@ function getSubTotal(){
     const getsubTotalText = document.getElementById('sub-total');
     getsubTotalText.innerText = subTotal;
 
+    // Tax calculation
+    const tax = subTotal / 10;
+    document.getElementById('tax-amount').innerText = tax;
+    
+    // Total calculation
+    document.getElementById('total-price').innerText = Math.round(tax + subTotal);
 }
-
-
-
 
 document.getElementById('phone-plus').addEventListener('click',function(){
     setPhoneQuentity('phone-quentity',true,'phone');
